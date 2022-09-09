@@ -40,6 +40,11 @@ class Musique extends Model
         return $this->belongsToMany(Album::class);
     }
 
+    public function groupes()
+    {
+        return $this->belongsToMany(Groupe::class);
+    }
+
     public function genres()
     {
         return $this->belongsToMany(Genre::class, 'genre_musique');

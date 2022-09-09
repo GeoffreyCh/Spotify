@@ -1,7 +1,60 @@
-{{--
-    @extends('layouts.app')
+@extends('layouts.app')
 
-    @section('content')
-        artiste.show template
-    @endsection
---}}
+@section('content')
+
+<div class="d-flex col-12">
+    <div class="col-2">
+        <div class="menu">
+            <ul>
+                <li><a href="{{ url('/') }}" class="">Accueil</a></li>
+                <li><a href="{{ route('musique.index') }}" class="">Titre</a></li>
+                <li><a href="{{ route('artiste.index') }}" class="">Artiste</a></li>
+                <li><a href="{{ route('groupe.index') }}" class="">Groupe</a></li>
+                <li><a href="{{ route('album.index') }}" class="">Album</a></li>
+                <li><a href="{{ route('genre.index') }}" class="">Genre</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-8 text-center">
+
+        <div class="showArtiste">
+            <h1><p>Album de </p><p class="text-white">{{$artiste->pseudo}}</p></h1>
+        </div>
+        <div class="d-flex flex-inverse-row">
+            @foreach ($albums as $album)
+                <div class="d-flex flex-column albums">
+                    <img src="{{ $album->photo }}" alt="pochette album" class="imgAlbum">
+                    <p class="fw-bold fs-6">{{ $album->titre }}</p>
+                    <p class="artisteAlbum">
+                        @if($album->artistes->first() === null)
+                            {{ $album->groupes->first()->nom }}
+                        @else
+                            {{ $album->artistes->first()->pseudo }}
+                        @endif
+                    </p>
+                </div>
+            @endforeach
+        </div>
+        <br>
+        <br>
+        <div class="showArtiste">
+            <h1><p>Groupe de </p><p class="text-white">{{$artiste->pseudo}}</p></h1>
+        </div>
+        <div class="">
+            @foreach ($groupes as $groupe)
+                <div class="d-flex flex-column groupes">
+                    <img src="{{ $groupe->photo }}" alt="photo groupe" class="imgGroupe">
+                    <p class="fw-bold fs-6">{{ $groupe->nom }}</p>
+                    <p class="artiste">Artiste</p>
+                </div>
+            @endforeach
+        </div>
+
+    </div>
+    <div class="col-2">
+
+    </div>
+</div>
+
+@endsection
+

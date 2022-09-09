@@ -15,7 +15,8 @@ class musiqueController extends Controller
      */
     public function index(Request $request)
     {
-        $musiques = Musique::all();
+
+        $musiques = Musique::with('albums', 'artistes', 'groupes')->get();
 
         return view('musique.index', compact('musiques'));
     }

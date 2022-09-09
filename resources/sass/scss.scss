@@ -2,6 +2,7 @@ $green: #1ccc5b;
 $black: #181313;
 $gris: #2d2d2d;
 $white: whitesmoke;
+$dark: rgb(10,10,10);
 
 @font-face {
     font-family: GothamBold;
@@ -55,6 +56,9 @@ h1 {
 
 .menu {
     margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 
     * {
         text-decoration: none;
@@ -63,6 +67,7 @@ h1 {
 
     a {
         color: $white;
+        font-size: 20px;
     }
 }
 
@@ -94,9 +99,160 @@ h1 {
         margin: 0;
     }
 
+    .artisteAlbum {
+        color: darken($white, 30%);
+    }
+
     &:hover {
         background-color: lighten($gris, 5%);
     }
 }
 
 
+//----------------------------------------------------
+//SCSS POUR MUSIQUE
+
+.musiques {
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 100px;
+    height: 60px;
+    background-color: $gris;
+    color: $white;
+
+    img {
+        width: 50px;
+        height: 50px;
+    }
+
+    p {
+        display: flex;
+        justify-content: start;
+        margin: 0;
+    }
+
+    .artisteAlbum {
+
+        a {
+            text-decoration: none;
+            color: darken($white, 30%);
+
+            &:hover {
+                color: darken($white, 10%);
+            }
+        }
+    }
+
+    .duree {
+        position: absolute;
+        right: 5%;
+        display: flex;
+        justify-content: right;
+    }
+
+    button {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        color: $white;
+        font-size: 20px;
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        background-color: $green;
+        transform: translate(50%, -50%);
+        border: none;
+
+        &:hover {
+            background-color: darken($green, 10%);
+        }
+    }
+}
+
+
+//----------------------------------------------------
+//SCSS POUR ARTISTE
+
+
+.artistes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    gap: 3px;
+    height: 250px;
+    width: 190px;
+    background-color: $gris;
+    color: $white;
+    cursor: pointer;
+
+    .imgArtiste {
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .artiste {
+        color: darken($white, 30%);
+    }
+
+    &:hover {
+        background-color: lighten($gris, 5%);
+    }
+}
+
+.showArtiste {
+
+    h1 {
+        display: flex;
+        gap: 8px;
+    }
+}
+
+
+
+//----------------------------------------------------
+//SCSS POUR GROUPE
+
+
+.groupes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    gap: 3px;
+    height: 250px;
+    width: 190px;
+    background-color: $gris;
+    color: $white;
+    cursor: pointer;
+
+    .imgGroupe {
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .artiste {
+        color: darken($white, 30%);
+    }
+
+    &:hover {
+        background-color: lighten($gris, 5%);
+    }
+}
