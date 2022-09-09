@@ -1,0 +1,102 @@
+$green: #1ccc5b;
+$black: #181313;
+$gris: #2d2d2d;
+$white: whitesmoke;
+
+@font-face {
+    font-family: GothamBold;
+    src: url(../fonts/Gotham-Bold.otf);
+}
+
+@font-face {
+    font-family: Gotham;
+    src: url(../fonts/Gotham-Light.otf);
+}
+
+$font: Gotham;
+$fontB: GothamBold;
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background-color: $black;
+    font-family: $font;
+}
+
+.navbar {
+    background-color: $green !important;
+    font-family: $fontB;
+
+    .navbar-brand {
+        font-size: 22px;
+    }
+}
+
+h1 {
+    color: $green;
+    font-family: GothamBold;
+    display: flex;
+    justify-content: end;
+    margin-right: 150px;
+    font-size: 45px;
+}
+
+
+//----------------------------------------------------
+//SCSS POUR MENU
+
+.menu {
+    margin-top: 120px;
+
+    * {
+        text-decoration: none;
+        list-style-type: none;
+    }
+
+    a {
+        color: $white;
+    }
+}
+
+
+//----------------------------------------------------
+//SCSS POUR ALBUM
+
+.albums {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    gap: 3px;
+    height: 250px;
+    width: 190px;
+    background-color: $gris;
+    color: $white;
+    cursor: pointer;
+
+    .imgAlbum {
+        width: 180px;
+        height: 180px;
+        border-radius: 5px;
+
+    }
+
+    p {
+        margin: 0;
+    }
+
+    &:hover {
+        background-color: lighten($gris, 5%);
+    }
+}
+
+

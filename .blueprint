@@ -1,0 +1,132 @@
+created:
+    - app/Http/Controllers/UserController.php
+    - app/Http/Controllers/groupeController.php
+    - app/Http/Controllers/artisteController.php
+    - app/Http/Controllers/albumController.php
+    - app/Http/Controllers/musiqueController.php
+    - app/Http/Controllers/genreController.php
+    - app/Http/Controllers/playlistController.php
+    - app/Http/Controllers/tagController.php
+    - app/Http/Controllers/annotationController.php
+    - app/Http/Controllers/annotableController.php
+    - database/factories/UserFactory.php
+    - database/factories/ArtisteFactory.php
+    - database/factories/GroupeFactory.php
+    - database/factories/AlbumFactory.php
+    - database/factories/MusiqueFactory.php
+    - database/factories/GenreFactory.php
+    - database/factories/PlaylistFactory.php
+    - database/factories/TagFactory.php
+    - database/factories/AnnotationFactory.php
+    - database/factories/AnnotableFactory.php
+    - database/migrations/2022_09_08_141820_create_users_table.php
+    - database/migrations/2022_09_08_141821_create_artistes_table.php
+    - database/migrations/2022_09_08_141822_create_groupes_table.php
+    - database/migrations/2022_09_08_141823_create_albums_table.php
+    - database/migrations/2022_09_08_141824_create_musiques_table.php
+    - database/migrations/2022_09_08_141825_create_genres_table.php
+    - database/migrations/2022_09_08_141826_create_playlists_table.php
+    - database/migrations/2022_09_08_141827_create_tags_table.php
+    - database/migrations/2022_09_08_141828_create_annotations_table.php
+    - database/migrations/2022_09_08_141829_create_annotables_table.php
+    - database/migrations/2022_09_08_141830_create_artiste_musique_table.php
+    - database/migrations/2022_09_08_141831_create_artiste_groupe_table.php
+    - database/migrations/2022_09_08_141832_create_genre_artiste_table.php
+    - database/migrations/2022_09_08_141833_create_album_artiste_table.php
+    - database/migrations/2022_09_08_141834_create_album_groupe_table.php
+    - database/migrations/2022_09_08_141835_create_genre_groupe_table.php
+    - database/migrations/2022_09_08_141836_create_groupe_musique_table.php
+    - database/migrations/2022_09_08_141837_create_album_musique_table.php
+    - database/migrations/2022_09_08_141838_create_genre_album_table.php
+    - database/migrations/2022_09_08_141839_create_genre_musique_table.php
+    - database/migrations/2022_09_08_141840_create_musique_playlist_table.php
+    - app/Models/User.php
+    - app/Models/artiste.php
+    - app/Models/groupe.php
+    - app/Models/album.php
+    - app/Models/musique.php
+    - app/Models/genre.php
+    - app/Models/playlist.php
+    - app/Models/tag.php
+    - app/Models/annotation.php
+    - app/Models/annotable.php
+    - database/seeders/UserSeeder.php
+    - database/seeders/GroupeSeeder.php
+    - database/seeders/ArtisteSeeder.php
+    - database/seeders/AlbumSeeder.php
+    - database/seeders/MusiqueSeeder.php
+    - database/seeders/GenreSeeder.php
+    - database/seeders/PlaylistSeeder.php
+    - database/seeders/TagSeeder.php
+    - database/seeders/AnnotationSeeder.php
+    - database/seeders/AnnotableSeeder.php
+    - tests/Feature/Http/Controllers/UserControllerTest.php
+    - tests/Feature/Http/Controllers/groupeControllerTest.php
+    - tests/Feature/Http/Controllers/artisteControllerTest.php
+    - tests/Feature/Http/Controllers/albumControllerTest.php
+    - tests/Feature/Http/Controllers/musiqueControllerTest.php
+    - tests/Feature/Http/Controllers/genreControllerTest.php
+    - tests/Feature/Http/Controllers/playlistControllerTest.php
+    - tests/Feature/Http/Controllers/tagControllerTest.php
+    - tests/Feature/Http/Controllers/annotationControllerTest.php
+    - tests/Feature/Http/Controllers/annotableControllerTest.php
+    - app/Http/Requests/tagStoreRequest.php
+    - app/Http/Requests/tagUpdateRequest.php
+    - app/Http/Requests/annotationStoreRequest.php
+    - app/Http/Requests/annotationUpdateRequest.php
+    - app/Http/Requests/annotableStoreRequest.php
+    - app/Http/Requests/annotableUpdateRequest.php
+    - resources/views/tag/index.blade.php
+    - resources/views/tag/create.blade.php
+    - resources/views/tag/show.blade.php
+    - resources/views/tag/edit.blade.php
+    - resources/views/annotation/index.blade.php
+    - resources/views/annotation/create.blade.php
+    - resources/views/annotation/show.blade.php
+    - resources/views/annotation/edit.blade.php
+    - resources/views/annotable/index.blade.php
+    - resources/views/annotable/create.blade.php
+    - resources/views/annotable/show.blade.php
+    - resources/views/annotable/edit.blade.php
+updated:
+    - routes/web.php
+skipped:
+    - resources/views/user/index.blade.php
+    - resources/views/user/create.blade.php
+    - resources/views/user/show.blade.php
+    - resources/views/user/edit.blade.php
+    - resources/views/groupe/index.blade.php
+    - resources/views/groupe/create.blade.php
+    - resources/views/groupe/show.blade.php
+    - resources/views/groupe/edit.blade.php
+    - resources/views/artiste/index.blade.php
+    - resources/views/artiste/create.blade.php
+    - resources/views/artiste/show.blade.php
+    - resources/views/artiste/edit.blade.php
+    - resources/views/album/index.blade.php
+    - resources/views/album/create.blade.php
+    - resources/views/album/show.blade.php
+    - resources/views/album/edit.blade.php
+    - resources/views/musique/index.blade.php
+    - resources/views/musique/create.blade.php
+    - resources/views/musique/show.blade.php
+    - resources/views/musique/edit.blade.php
+    - resources/views/genre/index.blade.php
+    - resources/views/genre/create.blade.php
+    - resources/views/genre/show.blade.php
+    - resources/views/genre/edit.blade.php
+    - resources/views/playlist/index.blade.php
+    - resources/views/playlist/create.blade.php
+    - resources/views/playlist/show.blade.php
+    - resources/views/playlist/edit.blade.php
+models:
+    User: { name: 'string,', email: 'string,', email_verified_at: 'datetime nullable,', password: 'string,', remember_token: 'string:100 nullable', relationships: { hasMany: 'playlist, annotation' } }
+    artiste: { nom: 'string,', prenom: 'string,', date_naissance: 'date,', date_deces: 'date nullable,', nationalite: 'string,', pseudo: 'string,', photo: string, relationships: { belongsToMany: 'musique, groupe, genre:genre_artiste, album', hasMany: annotable } }
+    groupe: { nom: 'string,', nationalite: 'string,', date_creation: 'date,', date_destruction: 'date nullable,', photo: 'string nullable', relationships: { belongsToMany: 'artiste, album, genre:genre_groupe, musique', hasMany: annotable } }
+    album: { titre: 'string,', annee: 'date,', photo: 'string nullable', relationships: { belongsToMany: 'groupe, musique, genre:genre_album, artiste', hasMany: annotable } }
+    musique: { titre: 'string,', duree_seconde: 'smallint,', filepath: 'string,', extension: 'string nullable', relationships: { belongsToMany: 'artiste, album, genre:genre_musique, playlist', hasMany: annotable } }
+    genre: { genre: string, relationships: { belongsToMany: 'artiste:genre_artiste, groupe:genre_groupe, album:genre_album, musique:genre_musique' } }
+    playlist: { nom: 'string,', description: text, user_id: 'id foreign', relationships: { belongsToMany: musique, hasMany: annotable } }
+    tag: { tag: string, relationships: { hasMany: annotation } }
+    annotation: { tag_id: 'id foreign', user_id: 'id foreign', annotable_id: 'id foreign' }
+    annotable: { album_id: 'id foreign', artiste_id: 'id foreign', musique_id: 'id foreign', groupe_id: 'id foreign', playlist_id: 'id foreign', relationships: { hasMany: annotation } }

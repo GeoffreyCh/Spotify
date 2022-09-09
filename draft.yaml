@@ -1,0 +1,96 @@
+models:
+  User:
+    name: string,
+    email: string,
+    email_verified_at: datetime nullable,
+    password: string,
+    remember_token: string:100 nullable
+    relationships:
+      hasMany: playlist, annotation
+  artiste:
+    nom: string,
+    prenom: string,
+    date_naissance: date,
+    date_deces: date nullable,
+    nationalite: string,
+    pseudo: string,
+    photo: string
+    relationships:
+      belongsToMany: musique, groupe, genre:genre_artiste, album
+      hasMany: annotable
+  groupe:
+    nom: string,
+    nationalite: string,
+    date_creation: date,
+    date_destruction: date nullable,
+    photo: string nullable
+    relationships:
+      belongsToMany: artiste, album, genre:genre_groupe, musique
+      hasMany: annotable
+  album:
+    titre: string,
+    annee: date,
+    photo: string nullable
+    relationships:
+      belongsToMany: groupe, musique, genre:genre_album, artiste
+      hasMany: annotable
+  musique:
+    titre: string,
+    duree_seconde: smallint,
+    filepath: string,
+    extension: string nullable
+    relationships:
+      belongsToMany: artiste, album, genre:genre_musique, playlist
+      hasMany: annotable
+  genre:
+    genre: string
+    relationships:
+      belongsToMany: artiste:genre_artiste, groupe:genre_groupe, album:genre_album, musique:genre_musique
+  playlist:
+    nom: string,
+    description: text
+    user_id: id foreign
+    relationships:
+      belongsToMany: musique
+      hasMany: annotable
+  tag:
+    tag: string
+    relationships:
+      hasMany: annotation
+  annotation:
+    tag_id: id foreign
+    user_id: id foreign
+    annotable_id: id foreign
+  annotable:
+    album_id: id foreign
+    artiste_id: id foreign
+    musique_id: id foreign
+    groupe_id: id foreign
+    playlist_id: id foreign
+    relationships:
+      hasMany: annotation
+
+seeders: User, groupe, artiste, album, musique, genre, playlist, tag, annotation, annotable
+
+controllers:
+  User:
+    resource
+  groupe:
+    resource
+  artiste:
+    resource
+  album:
+    resource
+  musique:
+    resource
+  genre:
+    resource
+  playlist:
+    resource
+  tag:
+    resource
+  annotation:
+    resource
+  annotable:
+    resource
+
