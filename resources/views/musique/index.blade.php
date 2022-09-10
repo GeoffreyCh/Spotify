@@ -24,12 +24,14 @@
             @foreach ($musiques as $musique)
                 {{-- {{dd($musique->artistes->first()->pseudo)}} --}}
                 <div class="d-flex musiques">
-                    <img src="{{$musique->albums->first()->photo}}" alt="">
+                    <a href="{{ route('album.show', ['album'=>$musique->albums->first()]) }}">
+                        <img src="{{$musique->albums->first()->photo}}" alt="">
+                    </a>
                     <div class="d-flex flex-column">
                         <p class="fw-bold fs-6">{{ $musique->titre }}</p>
                         <p class="artisteAlbum">
                             @if($musique->artistes->first() === null)
-                                <a href="{{ route('artiste.show', ['artiste'=>$musique->groupes->first()]) }}">
+                                <a href="{{ route('groupe.show', ['groupe'=>$musique->groupes->first()]) }}">
                                     {{ $musique->groupes->first()->nom }}
                                 </a>
                             @else
@@ -48,6 +50,10 @@
                 </div>
 
             @endforeach
+
+            <div class="btnPlusMusic">
+                <button class="">+</button>
+            </div>
 
         </div>
     </div>

@@ -9,10 +9,7 @@ use Illuminate\Http\Request;
 
 class groupeController extends Controller
 {
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Request $request)
     {
         $groupes = Groupe::all();
@@ -20,19 +17,13 @@ class groupeController extends Controller
         return view('groupe.index', compact('groupes'));
     }
 
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function create(Request $request)
     {
         return view('groupe.create');
     }
 
-    /**
-     * @param \App\Http\Requests\groupeStoreRequest $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(groupeStoreRequest $request)
     {
         $groupe = Groupe::create($request->validated());
@@ -42,31 +33,22 @@ class groupeController extends Controller
         return redirect()->route('groupe.index');
     }
 
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @param \App\groupe $groupe
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Request $request, groupe $groupe)
     {
-        return view('groupe.show', compact('groupe'));
+        $artistes = $groupe->artistes;
+        $albums = $groupe->albums;
+
+        return view('groupe.show', ['groupe'=>$groupe, 'artistes'=>$artistes, 'albums'=>$albums]);
     }
 
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @param \App\groupe $groupe
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Request $request, groupe $groupe)
     {
         return view('groupe.edit', compact('groupe'));
     }
 
-    /**
-     * @param \App\Http\Requests\groupeUpdateRequest $request
-     * @param \App\groupe $groupe
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(groupeUpdateRequest $request, groupe $groupe)
     {
         $groupe->update($request->validated());
@@ -76,11 +58,7 @@ class groupeController extends Controller
         return redirect()->route('groupe.index');
     }
 
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @param \App\groupe $groupe
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Request $request, groupe $groupe)
     {
         $groupe->delete();

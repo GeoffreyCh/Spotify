@@ -3,6 +3,11 @@
 
 @section('content')
 
+<div class="createArtiste delete">
+    @include('artiste.create')
+</div>
+
+
 <div class="d-flex col-12">
     <div class="col-2">
         <div class="menu">
@@ -21,14 +26,22 @@
         <br>
         <br>
         <div class="d-flex gap-5 flex-wrap justify-content-center">
+            <div class="lienArtiste">
+                <div class="d-flex flex-column artistes">
+                    <div class="iconePlus">+</div>
+                    <p class="fw-bold fs-6">Ajouter un <br> artiste</p>
+
+                </div>
+            </div>
 
             @foreach ($artistes as $artiste)
-                <div class="d-flex flex-column artistes">
-                    <img src="{{ $artiste->photo }}" alt="photo artiste" class="imgArtiste">
-                    <p class="fw-bold fs-6">{{ $artiste->pseudo }}</p>
-                    <p class="artiste">Artiste</p>
-                </div>
-
+                <a class="lien" href="{{ route('artiste.show', ['artiste'=>$artiste]) }}">
+                    <div class="d-flex flex-column artistes">
+                        <img src="{{ $artiste->photo }}" alt="photo artiste" class="imgArtiste">
+                        <p class="fw-bold fs-6">{{ $artiste->pseudo }}</p>
+                        <p class="artiste">Artiste</p>
+                    </div>
+                </a>
             @endforeach
 
         </div>

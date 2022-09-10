@@ -20,6 +20,7 @@ class Album extends Model
         'photo',
     ];
 
+
     /**
      * The attributes that should be cast to native types.
      *

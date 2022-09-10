@@ -16,18 +16,25 @@
         </div>
     </div>
     <div class="col-8 text-center">
-        <h1 class="fw-5">ARTISTES</h1>
+        <h1 class="fw-5">GROUPES</h1>
         <br>
         <br>
         <div class="d-flex gap-5 flex-wrap justify-content-center">
+            <a class="lienGroupe" href="">
+                <div class="d-flex flex-column groupes">
+                    <div class="iconePlus">+</div>
+                    <p class="artiste text-white">Ajouter un <br> groupe</p>
+                </div>
+            </a>
 
             @foreach ($groupes as $groupe)
-                <div class="d-flex flex-column groupes">
-                    <img src="{{ $groupe->photo }}" alt="photo groupe" class="imgGroupe">
-                    <p class="fw-bold fs-6">{{ $groupe->nom }}</p>
-                    <p class="artiste">Artiste</p>
-                </div>
-
+                <a class="lien" href="{{ route('groupe.show', ['groupe'=>$groupe]) }}">
+                    <div class="d-flex flex-column groupes">
+                        <img src="{{ $groupe->photo }}" alt="photo groupe" class="imgGroupe">
+                        <p class="fw-bold fs-6">{{ $groupe->nom }}</p>
+                        <p class="artiste">Artiste</p>
+                    </div>
+                </a>
             @endforeach
 
         </div>

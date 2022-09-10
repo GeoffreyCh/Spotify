@@ -18,21 +18,23 @@
     <div class="col-8 text-center">
 
         <div class="showArtiste">
-            <h1><p>Album de </p><p class="text-white">{{$artiste->pseudo}}</p></h1>
+            <h1><p>Albums de </p><p class="text-white">{{$artiste->pseudo}}</p></h1>
         </div>
-        <div class="d-flex flex-inverse-row">
+        <div class="d-flex flex-row-reverse">
             @foreach ($albums as $album)
-                <div class="d-flex flex-column albums">
-                    <img src="{{ $album->photo }}" alt="pochette album" class="imgAlbum">
-                    <p class="fw-bold fs-6">{{ $album->titre }}</p>
-                    <p class="artisteAlbum">
-                        @if($album->artistes->first() === null)
-                            {{ $album->groupes->first()->nom }}
-                        @else
-                            {{ $album->artistes->first()->pseudo }}
-                        @endif
-                    </p>
-                </div>
+                <a class="lienAlbum" href="{{ route('album.show', ['album'=>$album]) }}">
+                    <div class="d-flex flex-column albums">
+                        <img src="{{ $album->photo }}" alt="pochette album" class="imgAlbum">
+                        <p class="fw-bold fs-6">{{ $album->titre }}</p>
+                        <p class="artisteAlbum">
+                            @if($album->artistes->first() === null)
+                                {{ $album->groupes->first()->nom }}
+                            @else
+                                {{ $album->artistes->first()->pseudo }}
+                            @endif
+                        </p>
+                    </div>
+                </a>
             @endforeach
         </div>
         <br>
@@ -40,13 +42,15 @@
         <div class="showArtiste">
             <h1><p>Groupe de </p><p class="text-white">{{$artiste->pseudo}}</p></h1>
         </div>
-        <div class="">
+        <div class="d-flex flex-row-reverse">
             @foreach ($groupes as $groupe)
-                <div class="d-flex flex-column groupes">
-                    <img src="{{ $groupe->photo }}" alt="photo groupe" class="imgGroupe">
-                    <p class="fw-bold fs-6">{{ $groupe->nom }}</p>
-                    <p class="artiste">Artiste</p>
-                </div>
+                <a class="lienGroupe" href="{{ route('groupe.show', ['groupe'=>$groupe]) }}">
+                    <div class="d-flex flex-column groupes">
+                        <img src="{{ $groupe->photo }}" alt="photo groupe" class="imgGroupe">
+                        <p class="fw-bold fs-6">{{ $groupe->nom }}</p>
+                        <p class="artiste">Artiste</p>
+                    </div>
+                </a>
             @endforeach
         </div>
 

@@ -1,0 +1,51 @@
+//----------------------------------------------------
+//SCSS POUR ALBUM
+
+.albums {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    gap: 3px;
+    height: 250px;
+    width: 190px;
+    background-color: $gris;
+    color: $white;
+    cursor: pointer;
+
+    .imgAlbum {
+        width: 180px;
+        height: 180px;
+        border-radius: 5px;
+
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .artisteAlbum {
+        color: darken($white, 30%);
+
+        a {
+            text-decoration: none;
+            color: darken($white, 30%);
+
+            &:hover {
+                color: darken($white, 10%);
+            }
+        }
+    }
+
+    &:hover {
+        background-color: lighten($gris, 5%);
+    }
+}
+
+.showAlbum {
+
+    *{
+        margin: 0;
+    }
+}

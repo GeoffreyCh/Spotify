@@ -20,21 +20,32 @@
         <h1 class="fw-5">ALBUMS</h1>
         <br>
         <br>
-        <div class="d-flex gap-4 flex-wrap justify-content-center">
+        <div class="d-flex gap-3 flex-wrap justify-content-center">
+            <a class="lienAlbum" href="">
+                <div class="d-flex flex-column albums">
+                    <div class="iconePlusAlbum">+</div>
+                    <p class="fw-bold fs-6">Ajouter un <br> album</p>
+                </div>
+            </a>
 
             @foreach ($albums as $album)
-                <div class="d-flex flex-column albums">
-                    <img src="{{ $album->photo }}" alt="pochette album" class="imgAlbum">
-                    <p class="fw-bold fs-6">{{ $album->titre }}</p>
-                    <p class="artisteAlbum">
-                        @if($album->artistes->first() === null)
-                            {{ $album->groupes->first()->nom }}
-                        @else
-                            {{ $album->artistes->first()->pseudo }}
-                        @endif
-                    </p>
-                </div>
-
+                <a class="lien" href="{{ route('album.show', ['album'=>$album]) }}">
+                    <div class="d-flex flex-column albums">
+                        <img src="{{ $album->photo }}" alt="pochette album" class="imgAlbum">
+                        <p class="fw-bold fs-6">{{ $album->titre }}</p>
+                        <p class="artisteAlbum">
+                            @if($album->artistes->first() === null)
+                                <a href="{{ route('groupe.show', ['groupe'=>$album->groupes->first()]) }}">
+                                    {{ $album->groupes->first()->nom }}
+                                </a>
+                            @else
+                                <a href="{{ route('artiste.show', ['artiste'=>$album->artistes->first()]) }}">
+                                    {{ $album->artistes->first()->pseudo }}
+                                </a>
+                            @endif
+                        </p>
+                    </div>
+                </a>
             @endforeach
 
         </div>
