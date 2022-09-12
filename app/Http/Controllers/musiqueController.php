@@ -9,37 +9,26 @@ use App\Models\Artiste;
 use App\Models\Groupe;
 use App\Models\Album;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class musiqueController extends Controller
 {
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Request $request)
     {
 
         $musiques = Musique::with('albums', 'artistes', 'groupes')->get();
-        $artistes = Artiste::all();
-        $groupes = Groupe::all();
-        $albums = Album::all();
 
-        return view('musique.index', compact('musiques','artistes','groupes','albums'));
+        return view('musique.index', compact('musiques'));
     }
 
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function create(Request $request)
     {
         return view('musique.create');
     }
 
-    /**
-     * @param \App\Http\Requests\musiqueStoreRequest $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(musiqueStoreRequest $request)
     {
         $all_params = request([
@@ -53,31 +42,23 @@ class musiqueController extends Controller
         return redirect()->route('musique.index');
     }
 
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @param \App\musique $musique
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Request $request, musique $musique)
     {
-        return view('musique.show', compact('musique'));
+        $artistes = Artiste::all();
+        $groupes = Groupe::all();
+        $albums = Album::all();
+
+        return view('musique.show', compact('musique', 'artistes', 'groupes', 'albums'));
     }
 
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @param \App\musique $musique
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Request $request, musique $musique)
     {
         return view('musique.edit', compact('musique'));
     }
 
-    /**
-     * @param \App\Http\Requests\musiqueUpdateRequest $request
-     * @param \App\musique $musique
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(musiqueUpdateRequest $request, musique $musique)
     {
         $musique->update($request->validated());
@@ -87,15 +68,42 @@ class musiqueController extends Controller
         return redirect()->route('musique.index');
     }
 
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @param \App\musique $musique
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Request $request, musique $musique)
     {
         $musique->delete();
 
         return redirect()->route('musique.index');
+    }
+
+
+    public function addArtiste(musique $musique)
+    {
+        $artiste = request('artiste');
+
+
+
+        if(Str::of($artiste)->startsWith('artist-')){
+            $id = intval((string) (Str::of($artiste)->replace('artist-','')));
+            $musique->artistes()->attach($id);
+        } else {
+
+            $id = intval((string) (Str::of($artiste)->replace('group-','')));
+            $musique->groupes()->attach($id);
+        }
+
+
+
+        return redirect()->route('musique.show', ['musique'=>$musique]);
+    }
+
+
+    public function addAlbum(musique $musique)
+    {
+        $album = request('album');
+
+        $musique->albums()->attach($album);
+
+        return redirect()->route('musique.show', ['musique'=>$musique]);
     }
 }

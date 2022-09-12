@@ -32,6 +32,8 @@ Route::resource('artiste', App\Http\Controllers\artisteController::class);
 Route::resource('album', App\Http\Controllers\albumController::class);
 
 Route::resource('musique', App\Http\Controllers\musiqueController::class);
+Route::post('/musique/addArtiste/{musique}', [App\Http\Controllers\musiqueController::class, 'addArtiste'])->name('addArtiste');
+Route::post('/musique/addAlbum/{musique}', [App\Http\Controllers\musiqueController::class, 'addAlbum'])->name('addAlbum');
 
 Route::resource('genre', App\Http\Controllers\genreController::class);
 

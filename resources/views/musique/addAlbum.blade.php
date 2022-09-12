@@ -1,10 +1,13 @@
 <div class="containerAddInfoMusique">
-    <button class="btn btnAddInfoMusique">X</button>
+    <button class="btn btnAddAlbum">X</button>
     <div class="formAddInfoMusique d-flex flex-column text-center">
         <h1>{{ $musique->titre }}</h1>
-        <form class="d-flex flex-column justify-content-center" method="POST" action="">
+        <form class="d-flex flex-column justify-content-center" method="POST"
+            action="{{route('addAlbum', ['musique'=>$musique])}}"
+        >
             @csrf
             <label for="album">Appartient à l'album :</label>
+            <br>
                 <select name="album" class="form-control">
                     @foreach($albums as $album)
                         <option value="{{ $album->id }}">{{$album->titre}}</option>

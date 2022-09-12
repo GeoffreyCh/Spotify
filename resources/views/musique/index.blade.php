@@ -56,7 +56,7 @@
                         </p>
                     </div>
                     <div class="moreInfo">
-                        <p>ℹ</p>
+                        <a href="{{route('musique.show', ['musique'=>$musique])}}"><p>ℹ</p></a>
                     </div>
                     <div class="duree">
                         {{ $musique->duree }}
@@ -64,9 +64,6 @@
                     <div class="">
                         <button class="btnPlay">▶</button>
                     </div>
-                </div>
-                <div class="addInfoMusique delete">
-                    @include('musique.addInfo', ['musique'=>$musique])
                 </div>
             @endforeach
 

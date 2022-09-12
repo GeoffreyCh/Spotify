@@ -1,13 +1,27 @@
-let moreInfo = document.querySelector('.moreInfo');
-let addInfoMusique = document.querySelector('.addInfoMusique');
-let btnAddInfoMusique = document.querySelector('.btnAddInfoMusique');
+let addArtiste = document.querySelector('#addArtiste');
+let addArt = document.querySelector('.addArtiste');
+let btnAddArtiste = document.querySelector('.btnAddArtiste');
 
 
 
-moreInfo.addEventListener('click', ()=>{
-    addInfoMusique.classList.remove('delete');
+addArtiste.addEventListener('click', ()=>{
+    addArt.classList.remove('delete');
 });
 
-btnAddInfoMusique.addEventListener('click', ()=>{
-    addInfoMusique.classList.add('delete');
+btnAddArtiste.addEventListener('click', ()=>{
+    addArt.classList.add('delete');
+});
+
+let addAlbum = document.querySelector('#addAlbum');
+let addAlb = document.querySelector('.addAlbum');
+let btnAddAlbum = document.querySelector('.btnAddAlbum');
+
+
+
+addAlbum.addEventListener('click', ()=>{
+    addAlb.classList.remove('delete');
+});
+
+btnAddAlbum.addEventListener('click', ()=>{
+    addAlb.classList.add('delete');
 });

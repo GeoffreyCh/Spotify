@@ -27,7 +27,7 @@ class Musique extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
+
     ];
 
     public function artistes()
