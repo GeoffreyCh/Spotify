@@ -1,3 +1,8 @@
 import './bootstrap';
 
-import './js';
+import './artiste';
+
+import './groupe';
+
+
+

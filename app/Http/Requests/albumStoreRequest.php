@@ -24,7 +24,7 @@ class albumStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'album' => ['required'],
+
         ];
     }
 }

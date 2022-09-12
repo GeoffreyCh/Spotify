@@ -17,8 +17,8 @@ class Groupe extends Model
     protected $fillable = [
         'nom',
         'nationalite',
-        'date_creation',
-        'date_destruction',
+        'annee_creation',
+        'annee_destruction',
         'photo',
     ];
 
@@ -28,8 +28,7 @@ class Groupe extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'date_destruction' => 'date',
+        'id' => 'integer'
     ];
 
     public function artistes()

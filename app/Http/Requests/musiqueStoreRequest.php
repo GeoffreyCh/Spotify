@@ -24,7 +24,7 @@ class musiqueStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'musique' => ['required'],
+
         ];
     }
 }

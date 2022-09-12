@@ -26,9 +26,12 @@ class albumController extends Controller
 
     public function store(albumStoreRequest $request)
     {
-        $album = Album::create($request->validated());
-
-        $request->session()->flash('album.id', $album->id);
+        $all_params = request([
+            'titre',
+            'annee',
+            'photo'
+        ]);
+        $album = Album::create($all_params);
 
         return redirect()->route('album.index');
     }

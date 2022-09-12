@@ -2,6 +2,10 @@
 
 @section('content')
 
+<div class="createGroupe delete">
+    @include('groupe.create')
+</div>
+
 <div class="d-flex col-12">
     <div class="col-2">
         <div class="menu">
@@ -20,16 +24,21 @@
         <br>
         <br>
         <div class="d-flex gap-5 flex-wrap justify-content-center">
-            <a class="lienGroupe" href="">
+            <div class="lienGroupe" id="lienGroupe">
                 <div class="d-flex flex-column groupes">
                     <div class="iconePlus">+</div>
                     <p class="artiste text-white">Ajouter un <br> groupe</p>
                 </div>
-            </a>
+            </div>
 
             @foreach ($groupes as $groupe)
                 <a class="lien" href="{{ route('groupe.show', ['groupe'=>$groupe]) }}">
                     <div class="d-flex flex-column groupes">
+                        <form action="{{ route('groupe.destroy', ['groupe'=>$groupe]) }}" method="post" class="groupeDestroy">
+                            @csrf
+                            @method('delete')
+                            <button>X</button>
+                        </form>
                         <img src="{{ $groupe->photo }}" alt="photo groupe" class="imgGroupe">
                         <p class="fw-bold fs-6">{{ $groupe->nom }}</p>
                         <p class="artiste">Artiste</p>
@@ -44,4 +53,7 @@
     </div>
 </div>
 
+@vite(['resources/js/groupe.js'])
+
 @endsection
+

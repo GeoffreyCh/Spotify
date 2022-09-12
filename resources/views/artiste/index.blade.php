@@ -37,6 +37,11 @@
             @foreach ($artistes as $artiste)
                 <a class="lien" href="{{ route('artiste.show', ['artiste'=>$artiste]) }}">
                     <div class="d-flex flex-column artistes">
+                        <form action="{{ route('artiste.destroy', ['artiste'=>$artiste]) }}" method="post" class="artisteDestroy">
+                            @csrf
+                            @method('delete')
+                            <button>X</button>
+                        </form>
                         <img src="{{ $artiste->photo }}" alt="photo artiste" class="imgArtiste">
                         <p class="fw-bold fs-6">{{ $artiste->pseudo }}</p>
                         <p class="artiste">Artiste</p>
@@ -51,5 +56,8 @@
     </div>
 </div>
 
+@vite(['resources/js/artiste.js'])
+
 @endsection
+
 

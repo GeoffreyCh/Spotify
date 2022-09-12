@@ -26,9 +26,16 @@ class artisteController extends Controller
 
     public function store(artisteStoreRequest $request)
     {
-        $artiste = Artiste::create($request->validated());
-
-        $request->session()->flash('artiste.id', $artiste->id);
+        $all_params = request([
+            'nom',
+            'prenom',
+            'date_naissance',
+            'date_deces',
+            'photo',
+            'pseudo',
+            'nationalite'
+        ]);
+        $artiste = Artiste::create($all_params);
 
         return redirect()->route('artiste.index');
     }

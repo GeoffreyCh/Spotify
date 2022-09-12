@@ -26,9 +26,14 @@ class groupeController extends Controller
 
     public function store(groupeStoreRequest $request)
     {
-        $groupe = Groupe::create($request->validated());
-
-        $request->session()->flash('groupe.id', $groupe->id);
+        $all_params = request([
+            'nom',
+            'annee_creation',
+            'annee_destruction',
+            'photo',
+            'nationalite'
+        ]);
+        $groupe = Groupe::create($all_params);
 
         return redirect()->route('groupe.index');
     }

@@ -24,7 +24,7 @@ class artisteStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'artiste' => ['required'],
+
         ];
     }
 }

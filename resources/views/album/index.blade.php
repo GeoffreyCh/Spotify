@@ -3,6 +3,10 @@
 
 @section('content')
 
+<div class="createAlbum delete">
+    @include('album.create')
+</div>
+
 <div class="d-flex col-12">
     <div class="col-2">
         <div class="menu">
@@ -21,26 +25,33 @@
         <br>
         <br>
         <div class="d-flex gap-3 flex-wrap justify-content-center">
-            <a class="lienAlbum" href="">
+            <div class="lienAlbum">
                 <div class="d-flex flex-column albums">
                     <div class="iconePlusAlbum">+</div>
                     <p class="fw-bold fs-6">Ajouter un <br> album</p>
                 </div>
-            </a>
+            </div>
 
             @foreach ($albums as $album)
                 <a class="lien" href="{{ route('album.show', ['album'=>$album]) }}">
                     <div class="d-flex flex-column albums">
+                        <form action="{{ route('album.destroy', ['album'=>$album]) }}" method="post" class="albumDestroy">
+                            @csrf
+                            @method('delete')
+                            <button>X</button>
+                        </form>
                         <img src="{{ $album->photo }}" alt="pochette album" class="imgAlbum">
                         <p class="fw-bold fs-6">{{ $album->titre }}</p>
                         <p class="artisteAlbum">
-                            @if($album->artistes->first() === null)
-                                <a href="{{ route('groupe.show', ['groupe'=>$album->groupes->first()]) }}">
-                                    {{ $album->groupes->first()->nom }}
-                                </a>
-                            @else
+                            @if($album->artistes->first() === null && $album->groupes->first() === null)
+                                Artiste
+                            @elseif ($album->groupes->first() === null)
                                 <a href="{{ route('artiste.show', ['artiste'=>$album->artistes->first()]) }}">
                                     {{ $album->artistes->first()->pseudo }}
+                                </a>
+                            @else
+                                <a href="{{ route('groupe.show', ['groupe'=>$album->groupes->first()]) }}">
+                                    {{ $album->groupes->first()->nom }}
                                 </a>
                             @endif
                         </p>
@@ -54,6 +65,8 @@
 
     </div>
 </div>
+
+@vite(['resources/js/album.js'])
 
 @endsection
 

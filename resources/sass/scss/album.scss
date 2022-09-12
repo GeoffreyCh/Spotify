@@ -1,7 +1,10 @@
 //----------------------------------------------------
 //SCSS POUR ALBUM
 
+
+
 .albums {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,6 +16,23 @@
     background-color: $gris;
     color: $white;
     cursor: pointer;
+
+    .albumDestroy {
+
+        position: absolute;
+        bottom: 5px;
+        right: 10px;
+
+        button {
+            border: none;
+            background-color: transparent;
+            color: darken($white, 30%);
+
+            &:hover {
+                color: lighten($white, 10%);
+            }
+        }
+    }
 
     .imgAlbum {
         width: 180px;
@@ -47,5 +67,53 @@
 
     *{
         margin: 0;
+    }
+}
+
+.createAlbum {
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgb(100, 100, 100, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerCreateAlbum {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 650px;
+    background-color: $gris;
+
+    .btnCreateAlbum {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .formAlbum {
+        display: flex;
+        justify-content: center;
+        max-width: 80%;
+        color: $green;
+
+        .button {
+            margin-top: 20px;
+            display: flex;
+            justify-content: right;
+
+            .btn {
+                background-color: $green;
+                color: $dark;
+            }
+        }
     }
 }

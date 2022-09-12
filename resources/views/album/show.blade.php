@@ -18,7 +18,9 @@
     <div class="col-8 text-center">
         <div class="showAlbum d-flex justify-content-end">
             <h1 class="d-block justify-content-end"><p>{{ $album->titre }}</p><p class="text-white fs-2 align-self-end">de
-                @if ($artiste === null)
+                @if ($artiste === null && $groupe === null)
+                    ?
+                @elseif($artiste === null)
                     {{ $groupe->nom }}
                 @else
                     {{$artiste->pseudo}}
@@ -53,7 +55,7 @@
                         {{ $musique->duree }}
                     </div>
                     <div class="">
-                        <button class="">▶</button>
+                        <button class="btnPlay">▶</button>
                     </div>
                 </div>
 

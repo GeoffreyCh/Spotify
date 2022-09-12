@@ -16,7 +16,7 @@ class Musique extends Model
      */
     protected $fillable = [
         'titre',
-        'duree_seconde',
+        'duree',
         'filepath',
         'extension',
     ];

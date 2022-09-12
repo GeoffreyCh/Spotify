@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\musiqueStoreRequest;
 use App\Http\Requests\musiqueUpdateRequest;
 use App\Models\Musique;
+use App\Models\Artiste;
+use App\Models\Groupe;
+use App\Models\Album;
 use Illuminate\Http\Request;
 
 class musiqueController extends Controller
@@ -17,8 +20,11 @@ class musiqueController extends Controller
     {
 
         $musiques = Musique::with('albums', 'artistes', 'groupes')->get();
+        $artistes = Artiste::all();
+        $groupes = Groupe::all();
+        $albums = Album::all();
 
-        return view('musique.index', compact('musiques'));
+        return view('musique.index', compact('musiques','artistes','groupes','albums'));
     }
 
     /**
@@ -36,9 +42,13 @@ class musiqueController extends Controller
      */
     public function store(musiqueStoreRequest $request)
     {
-        $musique = Musique::create($request->validated());
-
-        $request->session()->flash('musique.id', $musique->id);
+        $all_params = request([
+            'titre',
+            'duree',
+            'filepath',
+            'extension'
+        ]);
+        $musique = Musique::create($all_params);
 
         return redirect()->route('musique.index');
     }

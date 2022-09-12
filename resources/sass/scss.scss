@@ -84,10 +84,14 @@ h1 {
 .lien {
     text-decoration: none;
     color: $white;
+
+    &:hover {
+        color: $white;
+    }
 }
 
 .delete {
-    display: none;
+    display: none !important;
 }
 
 
