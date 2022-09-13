@@ -24,8 +24,8 @@
         <br>
         <br>
         <div class="d-flex gap-2 flex-column justify-content-center">
-
             @foreach ($musiques as $musique)
+
                 <div class="d-flex musiques">
                     <form action="{{ route('musique.destroy', ['musique'=>$musique]) }}" method="post" class="musiqueDestroy">
                         @csrf
@@ -58,6 +58,9 @@
                     <div class="moreInfo">
                         <a href="{{route('musique.show', ['musique'=>$musique])}}"><p>ℹ</p></a>
                     </div>
+                    <audio controls>
+                        <source src="{{ asset('storage/'.$musique->filepath) }}">
+                    </audio>
                     <div class="duree">
                         {{ $musique->duree }}
                     </div>

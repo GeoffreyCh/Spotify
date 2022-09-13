@@ -33,10 +33,26 @@ class musiqueController extends Controller
     {
         $all_params = request([
             'titre',
+            'duree'
+        ]);
+
+        $filename = request('titre');
+
+        $path = $request->file('filepath')->storeAs(
+            'music',
+            $filename.'.'.$request->file('filepath')->getClientOriginalExtension(),
+            'public'
+        );
+
+
+        $all_params = request([
+            'titre',
             'duree',
-            'filepath',
             'extension'
         ]);
+
+        $all_params['filepath'] = $path;
+
         $musique = Musique::create($all_params);
 
         return redirect()->route('musique.index');

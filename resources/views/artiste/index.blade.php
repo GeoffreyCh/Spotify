@@ -30,7 +30,6 @@
                 <div class="d-flex flex-column artistes">
                     <div class="iconePlus">+</div>
                     <p class="fw-bold fs-6">Ajouter un <br> artiste</p>
-
                 </div>
             </div>
 

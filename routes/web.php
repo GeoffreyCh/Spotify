@@ -26,14 +26,20 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('user', App\Http\Controllers\UserController::class);
 
 Route::resource('groupe', App\Http\Controllers\groupeController::class);
+Route::post('/groupe/addArtiste/{groupe}', [App\Http\Controllers\groupeController::class, 'addArtiste'])->name('groupe.addArtiste');
+Route::post('/groupe/addAlbum/{groupe}', [App\Http\Controllers\groupeController::class, 'addAlbum'])->name('groupe.addAlbum');
 
 Route::resource('artiste', App\Http\Controllers\artisteController::class);
+Route::post('/artiste/addGroupe/{artiste}', [App\Http\Controllers\artisteController::class, 'addGroupe'])->name('artiste.addGroupe');
+Route::post('/artiste/addAlbum/{artiste}', [App\Http\Controllers\artisteController::class, 'addAlbum'])->name('artiste.addAlbum');
 
 Route::resource('album', App\Http\Controllers\albumController::class);
+Route::post('/album/addArtiste/{album}', [App\Http\Controllers\albumController::class, 'addArtiste'])->name('album.addArtiste');
+Route::post('/album/addMusique/{album}', [App\Http\Controllers\albumController::class, 'addMusique'])->name('album.addMusique');
 
 Route::resource('musique', App\Http\Controllers\musiqueController::class);
-Route::post('/musique/addArtiste/{musique}', [App\Http\Controllers\musiqueController::class, 'addArtiste'])->name('addArtiste');
-Route::post('/musique/addAlbum/{musique}', [App\Http\Controllers\musiqueController::class, 'addAlbum'])->name('addAlbum');
+Route::post('/musique/addArtiste/{musique}', [App\Http\Controllers\musiqueController::class, 'addArtiste'])->name('musique.addArtiste');
+Route::post('/musique/addAlbum/{musique}', [App\Http\Controllers\musiqueController::class, 'addAlbum'])->name('musique.addAlbum');
 
 Route::resource('genre', App\Http\Controllers\genreController::class);
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artiste;
+use App\Models\Album;
+use App\Models\Groupe;
 use App\Http\Requests\artisteStoreRequest;
 use App\Http\Requests\artisteUpdateRequest;
 use Illuminate\Http\Request;
@@ -46,7 +48,10 @@ class artisteController extends Controller
         $albums = $artiste->albums;
         $groupes = $artiste->groupes;
 
-        return view('artiste.show', ['artiste'=>$artiste, 'albums'=>$albums, 'groupes'=>$groupes]);
+        $allAlbums = Album::all();
+        $allGroupes = Groupe::all();
+
+        return view('artiste.show', ['artiste'=>$artiste, 'albums'=>$albums, 'groupes'=>$groupes, 'allAlbums'=>$allAlbums, 'allGroupes'=>$allGroupes]);
     }
 
 
@@ -71,5 +76,25 @@ class artisteController extends Controller
         $artiste->delete();
 
         return redirect()->route('artiste.index');
+    }
+
+
+    public function addAlbum(artiste $artiste)
+    {
+        $album = request('album');
+
+        $artiste->albums()->attach($album);
+
+        return redirect()->route('artiste.show', ['artiste'=>$artiste]);
+    }
+
+
+    public function addGroupe(artiste $artiste)
+    {
+        $groupe = request('groupe');
+
+        $artiste->groupes()->attach($groupe);
+
+        return redirect()->route('artiste.show', ['artiste'=>$artiste]);
     }
 }

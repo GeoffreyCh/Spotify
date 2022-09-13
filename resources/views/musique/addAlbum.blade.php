@@ -3,7 +3,7 @@
     <div class="formAddInfoMusique d-flex flex-column text-center">
         <h1>{{ $musique->titre }}</h1>
         <form class="d-flex flex-column justify-content-center" method="POST"
-            action="{{route('addAlbum', ['musique'=>$musique])}}"
+            action="{{route('musique.addAlbum', ['musique'=>$musique])}}"
         >
             @csrf
             <label for="album">Appartient à l'album :</label>

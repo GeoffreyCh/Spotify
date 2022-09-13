@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\albumStoreRequest;
 use App\Http\Requests\albumUpdateRequest;
 use App\Models\Album;
+use App\Models\Artiste;
+use App\Models\Musique;
 use Illuminate\Http\Request;
 
 class albumController extends Controller
@@ -43,7 +45,10 @@ class albumController extends Controller
         $artiste = $album->artistes()->first();
         $groupe = $album->groupes()->first();
 
-        return view('album.show', ['album'=>$album, 'musiques'=>$musiques, 'artiste'=>$artiste, 'groupe'=>$groupe]);
+        $allArtistes = Artiste::all();
+        $allMusiques = Musique::all();
+
+        return view('album.show', ['album'=>$album, 'musiques'=>$musiques, 'artiste'=>$artiste, 'groupe'=>$groupe, 'allArtistes'=>$allArtistes, 'allMusiques'=>$allMusiques]);
     }
 
 
@@ -68,5 +73,25 @@ class albumController extends Controller
         $album->delete();
 
         return redirect()->route('album.index');
+    }
+
+
+    public function addArtiste(album $album)
+    {
+        $artiste = request('artiste');
+
+        $album->artistes()->attach($artiste);
+
+        return redirect()->route('album.show', ['album'=>$album]);
+    }
+
+
+    public function addMusique(album $album)
+    {
+        $musique = request('musique');
+
+        $album->musiques()->attach($musique);
+
+        return redirect()->route('album.show', ['album'=>$album]);
     }
 }

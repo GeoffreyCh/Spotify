@@ -129,8 +129,6 @@
                     </div>
                 </a>
             @endif
-
-            <div class=""></div>
         </div>
     </div>
     <div class="col-2">

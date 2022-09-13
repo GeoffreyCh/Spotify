@@ -117,3 +117,119 @@
         }
     }
 }
+
+
+.addArtisteAlbum {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgb(100, 100, 100, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .btn {
+        color: $white;
+
+        &:hover {
+            color: darken($white, 20%);
+        }
+    }
+}
+
+.containerAddInfoMusique {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 300px;
+    background-color: $gris;
+
+    .btnAddArtisteAlbum {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .formAddInfoMusique {
+        display: flex;
+        justify-content: center;
+        max-width: 80%;
+        color: $green;
+
+        .button {
+            margin-top: 20px;
+            display: flex;
+            justify-content: right;
+
+            .btn {
+                background-color: $green;
+                color: $dark;
+            }
+        }
+    }
+}
+
+
+.addMusiqueAlbum {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgb(100, 100, 100, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .btn {
+        color: $white;
+
+        &:hover {
+            color: darken($white, 20%);
+        }
+    }
+}
+
+.containerAddInfoMusique {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 300px;
+    background-color: $gris;
+
+    .btnAddMusiqueAlbum {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .formAddInfoMusique {
+        display: flex;
+        justify-content: center;
+        max-width: 80%;
+        color: $green;
+
+        .button {
+            margin-top: 20px;
+            display: flex;
+            justify-content: right;
+
+            .btn {
+                background-color: $green;
+                color: $dark;
+            }
+        }
+    }
+}

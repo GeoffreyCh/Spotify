@@ -1,7 +1,7 @@
 <div class="containerCreateMusique">
     <button class="btn btnCreateMusique">X</button>
     <div class="formMusique">
-        <form class="d-flex flex-column justify-content-center" method="POST" action="{{ route('musique.store') }}">
+        <form class="d-flex flex-column justify-content-center" method="POST" enctype="multipart/form-data" action="{{ route('musique.store') }}">
             @csrf
                 <label for="titre" class="form-label">Titre</label>
                 <input class="form-control" name="titre">
@@ -12,11 +12,7 @@
                 <div class="inputFile">
                     <div class="d-flex flex-column">
                         <label for="filepath" class="form-label">Filepath</label>
-                        <input type="text" class="form-control" name="filepath">
-                    </div>
-                    <div class="d-flex flex-column">
-                        <label for="extension" class="form-label">Extension</label>
-                        <input type="text" class="form-control" name="extension">
+                        <input type="file" class="form-control" name="filepath">
                     </div>
                 </div>
 

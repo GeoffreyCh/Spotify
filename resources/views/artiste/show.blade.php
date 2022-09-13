@@ -2,6 +2,14 @@
 
 @section('content')
 
+<div class="addGroupe delete">
+    @include('artiste.addGroupe')
+</div>
+
+<div class="addAlbumArtiste delete">
+    @include('artiste.addAlbum')
+</div>
+
 <div class="d-flex col-12">
     <div class="col-2">
         <div class="menu">
@@ -20,7 +28,13 @@
         <div class="showArtiste">
             <h1><p>Albums de </p><p class="text-white">{{$artiste->pseudo}}</p></h1>
         </div>
-        <div class="d-flex flex-row-reverse">
+        <div class="d-flex flex-row-reverse gap-4">
+            <div class="lienAlbum" id="addAlbumArtiste">
+                <div class="d-flex flex-column albums">
+                    <div class="iconePlusAlbum">+</div>
+                    <p class="fw-bold fs-6">Ajouter un <br> album</p>
+                </div>
+            </div>
             @foreach ($albums as $album)
                 <a class="lienAlbum" href="{{ route('album.show', ['album'=>$album]) }}">
                     <div class="d-flex flex-column albums">
@@ -42,7 +56,13 @@
         <div class="showArtiste">
             <h1><p>Groupe de </p><p class="text-white">{{$artiste->pseudo}}</p></h1>
         </div>
-        <div class="d-flex flex-row-reverse">
+        <div class="d-flex flex-row-reverse gap-4">
+            <div class="lienGroupe" id="addGroupe">
+                <div class="d-flex flex-column groupes">
+                    <div class="iconePlus">+</div>
+                    <p class="artiste text-white">Ajouter un <br> groupe</p>
+                </div>
+            </div>
             @foreach ($groupes as $groupe)
                 <a class="lienGroupe" href="{{ route('groupe.show', ['groupe'=>$groupe]) }}">
                     <div class="d-flex flex-column groupes">
@@ -59,6 +79,8 @@
 
     </div>
 </div>
+
+@vite(['resources/js/addInfoArtiste.js'])
 
 @endsection
 
