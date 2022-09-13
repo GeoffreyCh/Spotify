@@ -30,6 +30,8 @@ $fontB: GothamBold;
 body {
     background-color: $black;
     font-family: $font;
+    overflow-x: hidden;
+    padding-bottom: 100px;
 }
 
 .navbar {

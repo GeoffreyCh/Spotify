@@ -89,6 +89,38 @@
         }
     }
 
+    .editInfoMusique {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: none;
+        margin-left: -10px;
+        background-color: darken($white, 20%);
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        a {
+            text-decoration: none;
+            color: $gris;
+
+            p {
+                transform: translate(0%, 0%);
+            }
+        }
+
+        &:hover {
+            background-color: $white;
+        }
+    }
+
+    .audio {
+        position: absolute;
+        left: 155%;
+    }
+
     .duree {
         position: absolute;
         right: 5%;
@@ -108,10 +140,29 @@
         background-color: $green;
         transform: translate(50%, -50%);
         border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        &:hover {
-            background-color: darken($green, 10%);
-        }
+    }
+
+    .btnPause {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        color: $white;
+        font-size: 14px;
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        background-color: $gris;
+        transform: translate(50%, -50%);
+        border: 2px solid $green;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 5px;
     }
 }
 
@@ -139,11 +190,10 @@
 .createMusique {
     z-index: 5;
     position: absolute;
-    overflow: hidden;
-    top: 0%;
+    overflow-y: hidden;
     padding: 0%;
     width: 100vw;
-    height: 100vh;
+    min-height: 100%;
     overflow: hidden;
     background-color: rgb(100, 100, 100, 0.5);
     display: flex;

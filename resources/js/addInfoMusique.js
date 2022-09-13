@@ -1,3 +1,18 @@
+let addAlbum = document.querySelector('#addAlbum');
+let addAlb = document.querySelector('.addAlbum');
+let btnAddAlbum = document.querySelector('.btnAddAlbum');
+
+
+
+addAlbum.addEventListener('click', ()=>{
+    addAlb.classList.remove('delete');
+});
+
+btnAddAlbum.addEventListener('click', ()=>{
+    addAlb.classList.add('delete');
+});
+
+
 let addArtiste = document.querySelector('#addArtiste');
 let addArt = document.querySelector('.addArtiste');
 let btnAddArtiste = document.querySelector('.btnAddArtiste');
@@ -12,16 +27,4 @@ btnAddArtiste.addEventListener('click', ()=>{
     addArt.classList.add('delete');
 });
 
-let addAlbum = document.querySelector('#addAlbum');
-let addAlb = document.querySelector('.addAlbum');
-let btnAddAlbum = document.querySelector('.btnAddAlbum');
 
-
-
-addAlbum.addEventListener('click', ()=>{
-    addAlb.classList.remove('delete');
-});
-
-btnAddAlbum.addEventListener('click', ()=>{
-    addAlb.classList.add('delete');
-});

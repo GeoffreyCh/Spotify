@@ -77,9 +77,18 @@ class musiqueController extends Controller
 
     public function update(musiqueUpdateRequest $request, musique $musique)
     {
-        $musique->update($request->validated());
+        $musique->titre = $request->get('titre');
+        $musique->duree = $request->get('duree');
 
-        $request->session()->flash('musique.id', $musique->id);
+        $filename = request('titre');
+
+        $musique->filepath = $request->file('filepath')->storeAs(
+            'music',
+            $filename.'.'.$request->file('filepath')->getClientOriginalExtension(),
+            'public'
+        );
+
+        $musique->save();
 
         return redirect()->route('musique.index');
     }

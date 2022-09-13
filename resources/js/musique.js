@@ -1,3 +1,5 @@
+
+
 let btnPlusMusic = document.querySelector('.btnPlusMusic');
 let createMusique = document.querySelector('.createMusique');
 let btnCreateMusique = document.querySelector('.btnCreateMusique');
@@ -11,4 +13,6 @@ btnPlusMusic.addEventListener('click', ()=>{
 btnCreateMusique.addEventListener('click', ()=>{
     createMusique.classList.add('delete');
 });
+
+
 

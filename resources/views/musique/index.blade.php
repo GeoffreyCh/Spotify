@@ -58,14 +58,18 @@
                     <div class="moreInfo">
                         <a href="{{route('musique.show', ['musique'=>$musique])}}"><p>ℹ</p></a>
                     </div>
-                    <audio controls>
+                    <div class="editInfoMusique">
+                        <a href="{{route('musique.edit', ['musique'=>$musique])}}"><p>✎</p></a>
+                    </div>
+                    <audio controls class="audio delete" id="audio">
                         <source src="{{ asset('storage/'.$musique->filepath) }}">
                     </audio>
                     <div class="duree">
                         {{ $musique->duree }}
                     </div>
-                    <div class="">
-                        <button class="btnPlay">▶</button>
+                    <div class="" id="btnPlay">
+                        <button class="btnPlay" >▶</button>
+                        <button class="btnPause delete" >▌▌</button>
                     </div>
                 </div>
             @endforeach
@@ -80,6 +84,46 @@
 
     </div>
 </div>
+
+<script>
+
+
+function playPause(event) {
+
+    let audio = event.target.parentElement.parentElement.querySelector('.audio');
+    let btnPlay = event.target.parentElement.querySelector('.btnPlay');
+    let btnPause = event.target.parentElement.querySelector('.btnPause');
+    // let btnPause = event.target.querySelector('.pause');
+
+    console.log(audio);
+    console.log(btnPause);
+
+    if (audio.paused){
+
+        btnPause.classList.remove('delete');
+        btnPlay.classList.add('delete');
+        audio.play();
+    } else {
+
+        btnPause.classList.add('delete');
+        btnPlay.classList.remove('delete');
+        audio.pause();
+    }
+}
+
+let btns = document.querySelectorAll('#btnPlay');
+
+btns.forEach(element => {
+    element.addEventListener('click',
+    playPause)
+});
+
+
+// btnPlay.addEventListener('click', ()=>{
+//     console.log('test');
+//     playPause();
+// })
+</script>
 
 @vite(['resources/js/musique.js'])
 
