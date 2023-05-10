@@ -15,9 +15,9 @@ class playlistController extends Controller
      */
     public function index(Request $request)
     {
-        $playlists = Playlist::all();
+        $playlist = Playlist::first();
 
-        return view('playlist.index', compact('playlists'));
+        return view('playlist.index', compact('playlist'));
     }
 
     /**

@@ -16,6 +16,7 @@
                 <li><a href="{{ route('groupe.index') }}" class="">Groupe</a></li>
                 <li><a href="{{ route('album.index') }}" class="">Album</a></li>
                 <li><a href="{{ route('genre.index') }}" class="">Genre</a></li>
+                <li><a href="{{ route('playlist.index') }}" class="">Playlist</a></li>
             </ul>
         </div>
     </div>
@@ -61,7 +62,10 @@
                     <div class="editInfoMusique">
                         <a href="{{route('musique.edit', ['musique'=>$musique])}}"><p>✎</p></a>
                     </div>
-                    <audio controls class="audio delete" id="audio">
+                    <div class="addToPlaylist">
+                        <p class="like">♡</p>
+                    </div>
+                    <audio controls class="audio delete" id="audio" loop>
                         <source src="{{ asset('storage/'.$musique->filepath) }}">
                     </audio>
                     <div class="duree">
@@ -119,10 +123,6 @@ btns.forEach(element => {
 });
 
 
-// btnPlay.addEventListener('click', ()=>{
-//     console.log('test');
-//     playPause();
-// })
 </script>
 
 @vite(['resources/js/musique.js'])

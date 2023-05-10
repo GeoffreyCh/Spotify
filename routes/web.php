@@ -40,6 +40,7 @@ Route::post('/album/addMusique/{album}', [App\Http\Controllers\albumController::
 Route::resource('musique', App\Http\Controllers\musiqueController::class);
 Route::post('/musique/addArtiste/{musique}', [App\Http\Controllers\musiqueController::class, 'addArtiste'])->name('musique.addArtiste');
 Route::post('/musique/addAlbum/{musique}', [App\Http\Controllers\musiqueController::class, 'addAlbum'])->name('musique.addAlbum');
+Route::post('/musique/addToPlaylist/{musique}', [App\Http\Controllers\musiqueController::class, 'addToPlaylist'])->name('musique.addToPlaylist');
 
 Route::resource('genre', App\Http\Controllers\genreController::class);
 

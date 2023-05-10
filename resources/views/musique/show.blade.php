@@ -71,8 +71,12 @@
                 <div class="duree">
                     {{ $musique->duree }}
                 </div>
-                <div class="">
-                    <button class="btnPlay">▶</button>
+                <audio controls class="audio delete" id="audio" loop>
+                    <source src="{{ asset('storage/'.$musique->filepath) }}">
+                </audio>
+                <div class="" id="btnPlay">
+                    <button class="btnPlay" >▶</button>
+                    <button class="btnPause delete" >▌▌</button>
                 </div>
             </div>
 
@@ -135,6 +139,41 @@
 
     </div>
 </div>
+
+<script>
+
+
+    function playPause(event) {
+
+        let audio = event.target.parentElement.parentElement.querySelector('.audio');
+        let btnPlay = event.target.parentElement.querySelector('.btnPlay');
+        let btnPause = event.target.parentElement.querySelector('.btnPause');
+
+        console.log(audio);
+        console.log(btnPause);
+
+        if (audio.paused){
+
+            btnPause.classList.remove('delete');
+            btnPlay.classList.add('delete');
+            audio.play();
+        } else {
+
+            btnPause.classList.add('delete');
+            btnPlay.classList.remove('delete');
+            audio.pause();
+        }
+    }
+
+    let btns = document.querySelectorAll('#btnPlay');
+
+    btns.forEach(element => {
+        element.addEventListener('click',
+        playPause)
+    });
+
+
+    </script>
 
 @vite(['resources/js/addInfoMusique.js'])
 

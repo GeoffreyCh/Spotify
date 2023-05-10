@@ -116,6 +116,20 @@
         }
     }
 
+    .addToPlaylist {
+        margin-left: -10px;
+
+        .like {
+            font-size: 24px;
+            color: $white;
+            cursor: pointer;
+
+            &:hover {
+                color: $green;
+            }
+        }
+    }
+
     .audio {
         position: absolute;
         left: 155%;
@@ -214,6 +228,7 @@
         position: absolute;
         top: 0;
         right: 0;
+        color: $white;
     }
 
     .formMusique {

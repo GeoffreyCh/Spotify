@@ -131,4 +131,14 @@ class musiqueController extends Controller
 
         return redirect()->route('musique.show', ['musique'=>$musique]);
     }
+
+
+    public function addToPlaylist(musique $musique)
+    {
+        $album = request('album');
+
+        $musique->albums()->attach($album);
+
+        return redirect()->route('musique.show', ['musique'=>$musique]);
+    }
 }

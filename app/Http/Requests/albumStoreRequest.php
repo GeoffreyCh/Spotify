@@ -24,7 +24,8 @@ class albumStoreRequest extends FormRequest
     public function rules()
     {
         return [
-
+            'titre' => 'required',
+            'annee' => 'required',
         ];
     }
 }

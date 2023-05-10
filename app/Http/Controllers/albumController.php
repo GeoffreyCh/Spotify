@@ -60,9 +60,11 @@ class albumController extends Controller
 
     public function update(albumUpdateRequest $request, album $album)
     {
-        $album->update($request->validated());
-
-        $request->session()->flash('album.id', $album->id);
+        $album->update([
+            'titre'=>request('titre'),
+            'annee'=>request('annee'),
+            'photo'=>request('photo')
+        ]);
 
         return redirect()->route('album.index');
     }
